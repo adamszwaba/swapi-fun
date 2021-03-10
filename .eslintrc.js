@@ -2,12 +2,15 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    "jest/globals": true,
   },
   extends: [
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "airbnb",
     "prettier",
+    "react-app",
+    "react-app/jest",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -49,4 +52,12 @@ module.exports = {
       },
     },
   },
+  overrides: [
+    {
+      files: ["**/*.spec.js", "**/*.spec.jsx"],
+      env: {
+        jest: true,
+      },
+    },
+  ],
 };
