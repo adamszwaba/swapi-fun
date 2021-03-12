@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function AppHeading() {
+export default function AppHeading(): JSX.Element {
   const classes = useStyles();
   return (
     <AppBar position="fixed" className={classes.appBar}>
