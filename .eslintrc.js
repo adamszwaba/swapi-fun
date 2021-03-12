@@ -22,13 +22,14 @@ module.exports = {
   },
   plugins: ["prettier", "react", "@typescript-eslint", "import"],
   rules: {
-    "@typescript-eslint/explicit-module-boundary-types": "error",
     "no-use-before-define": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "error",
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/jsx-filename-extension": [
       2,
       { extensions: [".js", ".jsx", ".ts", ".tsx"] },
     ],
+    "react/prop-types": "off",
     "import/extensions": [
       "error",
       {
