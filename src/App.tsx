@@ -1,13 +1,14 @@
 import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import Toolbar from "@material-ui/core/Toolbar";
 import AppHeading from "./components/app-heading";
 import Game from "./features/game/game";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
-    root: {
+    main: {
       display: "flex",
+      height: "100vh",
+      paddingTop: theme.spacing(8),
     },
   })
 );
@@ -18,8 +19,7 @@ export default function App(): JSX.Element {
   return (
     <>
       <AppHeading />
-      <Toolbar />
-      <main className={classes.root}>
+      <main className={classes.main}>
         <Game />
       </main>
     </>
