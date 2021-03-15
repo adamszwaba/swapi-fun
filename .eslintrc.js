@@ -57,6 +57,12 @@ module.exports = {
   },
   overrides: [
     {
+      files: ["slice.ts"],
+      rules: {
+        "no-param-reassign": "off",
+      },
+    },
+    {
       files: ["**/*.spec.js", "**/*.spec.jsx"],
       env: {
         jest: true,

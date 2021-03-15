@@ -2,16 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "@fontsource/roboto";
 import { CssBaseline, MuiThemeProvider } from "@material-ui/core";
+import { Provider } from "react-redux";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import theme from "./theme";
+import store from "./store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <MuiThemeProvider theme={theme}>
-      <CssBaseline />
-      <App />
-    </MuiThemeProvider>
+    <Provider store={store}>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        <App />
+      </MuiThemeProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
