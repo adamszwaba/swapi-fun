@@ -22,9 +22,14 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function AppHeading(): JSX.Element {
   const classes = useStyles();
   return (
-    <AppBar position="fixed" className={classes.appBar}>
+    <AppBar color="secondary" position="fixed" className={classes.appBar}>
       <Toolbar>
-        <Typography variant="h6" noWrap className={classes.toolbarText}>
+        <Typography
+          variant="h6"
+          color="primary"
+          noWrap
+          className={classes.toolbarText}
+        >
           Star Wars Arena
         </Typography>
       </Toolbar>

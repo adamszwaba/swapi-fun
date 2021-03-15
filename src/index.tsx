@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "@fontsource/roboto";
-import { MuiThemeProvider } from "@material-ui/core";
+import { CssBaseline, MuiThemeProvider } from "@material-ui/core";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import theme from "./theme";
@@ -9,6 +9,7 @@ import theme from "./theme";
 ReactDOM.render(
   <React.StrictMode>
     <MuiThemeProvider theme={theme}>
+      <CssBaseline />
       <App />
     </MuiThemeProvider>
   </React.StrictMode>,

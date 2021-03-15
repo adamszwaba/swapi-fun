@@ -1,7 +1,7 @@
-import { makeStyles, createStyles } from "@material-ui/core";
+import { makeStyles, createStyles, Paper } from "@material-ui/core";
 import React from "react";
 
-const drawerWidth = 240;
+const drawerWidth = "27%";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -26,9 +26,14 @@ type IPlayerAreaProps = {
 const PlayerArea: React.FC<IPlayerAreaProps> = ({ player }) => {
   const classes = useStyles();
   return (
-    <aside aria-label={`${player} area`} className={classes.playerDrawer}>
-      <div className={classes.drawerContainer}>{player}</div>
-    </aside>
+    <Paper
+      square
+      component="aside"
+      aria-label={`${player} area`}
+      className={classes.playerDrawer}
+    >
+      Hi
+    </Paper>
   );
 };
 
