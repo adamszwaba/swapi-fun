@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# SWFights
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
+
+SWAPI turned out to be miserable to work with, and I had some issues with typing here. There are things I'm not proud of - like many castings, many issues I would have done differently if I was less tired. For some reason the last week killed me, by the way, and I do not feel like a birthday boy I was a couple of days ago.
+
+## Tests
+
+I wrote the outline for the tests that seemed really necessary in this application. Now, push come to shove, I would also test the couple of hooks that I wrote. The tests almost all fail, because I didn't finish them in the timeframe I gave myself, and frankly, at the moment I'm too exhausted.
+
+## The gripes
+
+Did you know SWAPI has the weirdest sort of an indexing situation in the world? For some reason, there is no `id` anywhere to be seen, and yesterday I was fuming when I realised the simple workflow of:
+
+1. Get the number of entities from a general call to `api/starships/` or `api/people/`
+2. Get a random number between 1 and the number of entities
+3. Fetch that specific asset
+
+The whole concept went to hell when I realised, actually, it doesn't mean that if the `count` for an entity = 86, that any call for an `entity/{1-86}` would return a value.
+
+So instead, I kept all of the entities in a much less performant redux store. oof.
+
+Then typing issues. I was frustrated enough with it by then, that some hellish construct emerged. Again, I'm not very happy with it.
+
+Part of it might have been that my chair is a torture device, but a new one is coming, so good.
 
 ## Available Scripts
 
-In the project directory, you can run:
-
 ### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
