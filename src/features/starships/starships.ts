@@ -8,9 +8,13 @@ import {
 } from "@reduxjs/toolkit";
 import axios from "axios";
 import sanitizeNumericString from "../../utils/sanitize-numerics";
-import Resource, { ResourceUrl } from "./resource";
+import { Comparable, CompareResult, ResourceUrl } from "../game/resource";
 
-export interface Starship extends Resource {
+export interface Starship {
+  url: ResourceUrl;
+  id: string;
+  created: string;
+  edited: string;
   name: string;
   model: string;
   manufacturer: string;
@@ -27,6 +31,17 @@ export interface Starship extends Resource {
   pilots: ResourceUrl[];
   films: ResourceUrl[];
 }
+
+export class ComparableStarship extends Comparable<Starship> {
+  compare(to: ComparableStarship): CompareResult {
+    const thisValue = sanitizeNumericString(this.get().crew);
+    const toValue = sanitizeNumericString(to.get().crew);
+    if (thisValue > toValue) return 1;
+    if (thisValue === toValue) return 0;
+    return -1;
+  }
+}
+
 export const fetchStarships = createAsyncThunk(
   "starships/fetchStatus",
   async () => {

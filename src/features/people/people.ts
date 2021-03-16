@@ -8,11 +8,16 @@ import {
 } from "@reduxjs/toolkit";
 import axios from "axios";
 import { SWApiShape } from "../../api";
-import Resource, { ResourceUrl } from "./resource";
+import sanitizeNumericString from "../../utils/sanitize-numerics";
+import { Comparable, CompareResult, ResourceUrl } from "../game/resource";
 
 export type Gender = "male" | "female" | "n/a" | "unknown";
 
-export interface Person extends Resource {
+export interface Person {
+  url: ResourceUrl;
+  id: string;
+  created: string;
+  edited: string;
   birth_year: string;
   eye_color: string;
   films: ResourceUrl[];
@@ -26,6 +31,15 @@ export interface Person extends Resource {
   species: ResourceUrl[];
   starships: ResourceUrl[];
   vehicles: ResourceUrl[];
+}
+
+export class ComparablePerson extends Comparable<Person> {
+  compare(to: ComparablePerson): CompareResult {
+    const thisValue = sanitizeNumericString(this.get().mass);
+    const toValue = sanitizeNumericString(to.get().mass);
+    if (thisValue > toValue) return 1;
+    return -1;
+  }
 }
 
 export const fetchPeople = createAsyncThunk("people/fetchStatus", async () => {

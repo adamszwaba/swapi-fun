@@ -5,7 +5,7 @@ import PlayerArea from "./player-area";
 describe("User area", () => {
   render(<PlayerArea player="user" />);
   test("displays user's resource", () => {
-    const resourceBox = screen.getByRole("contentinfo", { name: "Your piece" });
+    const resourceBox = screen.getByRole("region", { name: "Your piece" });
     const resourceName = screen.getByRole("heading");
     expect(resourceBox.textContent).not.toBeFalsy();
   });
@@ -14,7 +14,7 @@ describe("User area", () => {
 describe("oponent area", () => {
   render(<PlayerArea player="oponent" />);
   test("displays oponents resource", () => {
-    const resourceBox = screen.getByRole("contentinfo", {
+    const resourceBox = screen.getByRole("region", {
       name: "Oponent's piece",
     });
   });
