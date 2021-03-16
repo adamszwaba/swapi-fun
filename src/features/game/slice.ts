@@ -48,7 +48,6 @@ export const gameSlice = createSlice({
     },
     resetBoard: (state) => {
       state.winner = null;
-      state.chosenPieces = { user: null, oponent: null };
     },
     setWinner: (state, action: PayloadAction<Player>) => {
       state.winner = action.payload;

@@ -1,12 +1,6 @@
 /* eslint-disable camelcase */
 import React from "react";
-import {
-  Box,
-  Card,
-  CardContent,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
+import { Card, CardContent, makeStyles, Typography } from "@material-ui/core";
 import { Starship } from "./starships";
 
 export type IStarshipBoxProps = { starship: Starship };
@@ -26,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 const StarshipBox: React.FC<IStarshipBoxProps> = ({ starship }) => {
   const classes = useStyles();
-  const { name, model, manufacturer, crew, max_atmosphering_speed } = starship;
+  const { name, model, manufacturer, crew } = starship;
   return (
     <Card className={classes.root} variant="outlined">
       <CardContent>
